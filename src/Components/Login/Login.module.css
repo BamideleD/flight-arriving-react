@@ -1,0 +1,8 @@
+.login{
+    background-color: aqua;
+    width: 20%;
+    max-width: 40rem;
+    margin: 15rem auto;
+    padding: 2% 10%;
+    border-radius: 20px;
+}
