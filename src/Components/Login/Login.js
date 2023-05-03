@@ -1,5 +1,7 @@
 import React from "react";
 import styles from './Login.module.css';
+import ForgotPassword from "./ForgotPassword";
+import SignUp from "./SignUp";
 
 
 const Login = () => {
@@ -155,6 +157,15 @@ const Login = () => {
                 <input type="text" id="username" placeholder="Email or Username or Phone Number"/>
                 <input type="password" id="password" placeholder="Password"/>
             </div>
+            <div className ={styles.forgotpassword}>
+                <ForgotPassword />
+            </div>
+            <button className={styles.button} type="submit">Log In</button>
+            <div className={styles.signup}>
+                <p>Need an account?</p>
+                <SignUp />
+            </div>
+            
                   
         </div>
     )
