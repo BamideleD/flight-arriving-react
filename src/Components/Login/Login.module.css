@@ -1,8 +1,80 @@
 .login{
-    background-color: aqua;
-    width: 20%;
-    max-width: 40rem;
-    margin: 15rem auto;
-    padding: 2% 10%;
-    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+
 }
+
+.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:50%;
+    margin:2%;
+}
+
+
+.login h2 {
+  font-size: 120%;
+  font-weight: lighter;
+  margin: 5% 0 0 0;
+
+}
+
+.login select {
+  border: 0;
+  width: 20%;
+  margin: 5% 5% 0 0;
+  margin-left: auto; 
+  color: rgba(0, 0, 0, 0.497)
+}
+
+
+.login input {
+  padding: 5%;
+  font: inherit;
+  height: 60%;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin: 5%;
+}
+
+.login input:focus {
+  outline: none;
+  border-color: #00475f;
+
+}
+
+/* .login.invalid input {
+  border-color: red;
+  background: #fbdada;
+} */
+
+.actions {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+:-moz-placeholder {
+  font-style: italic;  
+}
+::-moz-placeholder {
+  font-style: italic;  
+}
+:-ms-input-placeholder {  
+  font-style: italic; 
+}
+
+/* @media (min-width: 768px) {
+  .login {
+    align-items: center;
+
+  }
+
+} */
