@@ -5,7 +5,7 @@ import styles from './ForgotPassword.module.css';
 const ForgotPassword = () => {
     return(
         <div className={styles.forgotpassword}>
-            <p>ForgotPassword?</p>
+            <p>Forgot Password?</p>
         </div>
         
     )
