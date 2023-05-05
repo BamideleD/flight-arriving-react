@@ -6,7 +6,7 @@ const Info = () => {
     return (
         <div className={styles.info}>
             <div className={styles.header}>
-                <img url src= 'https://o.remove.bg/downloads/f4ddbf86-fcfa-4b2e-a8a2-c2e7659d5425/png-transparent-airplane-logo-aircraft-airplane-text-photography-logo-thumbnail-removebg-preview.png'  alt= 'logo' width='50' height='50' />
+                <img src= 'https://drive.google.com/file/d/1yvDCb-HL3h3Qn8ChsKJUWSNNabydP8bE/view?usp=share_link'  alt= 'logo' width='50' height='50' />
                 <h1>OPENSKY</h1>
             </div>
             
