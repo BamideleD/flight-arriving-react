@@ -6,9 +6,15 @@ import SignUp from "./SignUp";
 
 const Login = () => {
 
+    const lang = (event) => {
+        return(
+            event.target.value
+        )   
+    }
+
     return (
         <div className={styles.login}>
-            <select class="form-select" id="languages" name="languages" value="en">
+            <select id="languages" name="languages"  defaultValue="en" onChange={lang} >
                 <option value="af">Afrikaans</option>
                 <option value="sq">Albanian - shqip</option>
                 <option value="am">Amharic - አማርኛ</option>
