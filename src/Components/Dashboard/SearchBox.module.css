@@ -1,0 +1,35 @@
+.overall {
+    margin-bottom: 3%;
+    padding-bottom: 1%;
+    border-radius: 2px;
+    background-color: rgba(138, 138, 138, 0.545);
+}
+
+.flightsearch {
+    margin: 2%;
+    
+    
+}
+
+.overall header {
+    padding: 1% 2%;
+    background-color: #424242;
+    border-radius: 2px;
+}
+
+
+
+
+.line1 {
+    display:flex;
+    justify-content: space-between;
+    margin: 1% 0
+}
+
+.overall input {
+    width: 40%;
+    height: 1.2rem;
+}
+.overall button {
+    margin: 2% 0
+}

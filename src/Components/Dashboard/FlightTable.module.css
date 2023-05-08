@@ -1,0 +1,20 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 90%;
+    padding: 2%;
+    background-color: rgba(138, 138, 138, 0.545);
+    border-radius: 2px;
+   
+}
+
+tr:nth-child(even) {
+    background-color: #424242;
+  }
+
+.data {
+    font-weight: 1;
+    font-size: small;
+}

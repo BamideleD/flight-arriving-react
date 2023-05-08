@@ -1,12 +1,6 @@
-.table {
+.board {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 100%;
-    padding: 2%;
-    background-color: rgba(138, 138, 138, 0.545);
-}
-
-.data {
-    font-weight: 1px;
+    
 }

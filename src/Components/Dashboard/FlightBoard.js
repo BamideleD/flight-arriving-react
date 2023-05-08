@@ -1,6 +1,7 @@
 import React from "react";
 import FlightTable from "./FlightTable";
 import styles from './FlightBoard.module.css';
+import Search from "./Search";
 
 
 const FlightBoard = () => {
@@ -11,28 +12,9 @@ const FlightBoard = () => {
     ]
 
     return (
-        <div className={styles.table}>
-            <table>
-            <tr>
-                <th>AIRPORT</th>
-                <th>TIME</th>
-                <th>ARRIVING</th>
-                <th>DEPARTING</th>
-            </tr>
-           {flights.map((data) => {
-                return (
-                    <tr>
-                        <th className={data}>{data.Airport}</th>
-                        <th className={data}>{data.Time}</th>
-                        <th className={data}>{data.Arriving}</th>
-                        <th className={data}>{data.Departing}</th>
-                    </tr>
-                    
-                )   
-            })}
-        
-        </table>
-            
+        <div className= {styles.board}>
+            <Search />
+            <FlightTable flights = {flights}/>
         </div>
     )
 }
