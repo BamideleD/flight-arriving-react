@@ -18,7 +18,7 @@ const Search = () => {
         <div className={styles.search}>
             <div className={styles.button}>
                 {searchButton && <button onClick={searchClick}>Search</button>}
-                {searchState && <SearchBox />}
+                <SearchBox />
             </div>
         </div>
         

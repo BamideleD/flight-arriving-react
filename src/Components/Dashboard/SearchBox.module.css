@@ -20,16 +20,54 @@
 
 
 
-.line1 {
+.line1, .line2, .line3 {
     display:flex;
-    justify-content: space-between;
-    margin: 1% 0
+    margin: 1% 0;
+    padding-right: 5%;
+    
 }
 
-.overall input {
-    width: 40%;
+
+
+
+.input1 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30%;
+}
+.input2{
+    display: flex;
+    flex-direction: column;
+}
+.input3 {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30%;
+}
+
+.input1 input {
+    border: 0px;
+    border-radius: 2px;
+    margin:2% 0;
+    width: 250%;
     height: 1.2rem;
 }
+.input2 input{
+    border: 0px;
+    border-radius: 2px;
+    margin:0.3% 0;
+    height:1.2rem;
+    width: 41.3%;
+}
+
+.input3 input {
+    border: 0px;
+    border-radius: 2px;
+    margin:2% 0;
+    width: 250%;
+    height: 1.2rem;
+}
+
 .overall button {
     margin: 2% 0
 }
