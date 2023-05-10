@@ -11,14 +11,14 @@ const Search = () => {
     const searchClick = (event) => {
         event.preventDefault()
         setSearchState(prevState => !prevState)
-        setSearchButton(false)
+        setSearchButton(prevState => !prevState)
     }
 
     return (
         <div className={styles.search}>
             <div className={styles.button}>
                 {searchButton && <button onClick={searchClick}>Search</button>}
-                <SearchBox />
+                {searchState && <SearchBox onClick={searchClick} />}
             </div>
         </div>
         
