@@ -3,12 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-self: center;
-    width: 90%;
+    width: 94%;
     padding: 2%;
     background-color: rgba(138, 138, 138, 0.545);
     border-radius: 2px;
    
 }
+
+
 
 tr:nth-child(even) {
     background-color: #424242;
@@ -16,5 +18,5 @@ tr:nth-child(even) {
 
 .data {
     font-weight: 1;
-    font-size: small;
+    font-size: 0.7rem 
 }
