@@ -1,20 +1,76 @@
-import React from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import styles from './Login.module.css';
 import ForgotPassword from "./ForgotPassword";
 import SignUp from "./SignUp";
 
 
-const Login = (props) => {
+const defaultUsername = {
+    username: ''
+}
 
-    const lang = (event) => {
-        return(
-            event.target.value
+const defaultPassword = {
+    password: ''
+}
+
+const userReducer = (state, action) => {
+    if (action.type === 'VALIDUSER') {
+        return (
+            defaultUsername.username = action.username
         )   
     }
 
+    return defaultUsername
+}
+
+const passwordReducer = (state, action) => {
+    if (action.type === 'VALIDPASSWORD') {
+        return (
+            defaultPassword.password = action.password
+        )
+    }
+
+    return defaultPassword
+}
+
+const Login = (props) => {
+
+
+    const [formIsValid,setFormIsValid] = useState(false)
+
+
+    const [userState, dispatchUserAction] = useReducer(userReducer, '');
+    const [passwordState, dispatchPasswordAction] = useReducer(passwordReducer, '')
+
+
+
+    const checkUsername = (event) => {
+        dispatchUserAction({type: 'VALIDUSER', username: event.target.value})
+    }
+
+    const checkPassword = (event) => {
+        dispatchPasswordAction({type: 'VALIDPASSWORD', password: event.target.value})
+    }
+
+ 
+    useEffect(() => {
+        const timer =setTimeout(() => {
+            setFormIsValid(
+                userState.length> 1 && passwordState.length > 6
+            )
+        },500);
+        
+        return () => {
+            clearTimeout(timer)
+        };
+    },[userState, passwordState])
+
+    console.log(formIsValid);
+
+
+
     return (
         <div className={styles.login}>
-            <select id="languages" name="languages"  defaultValue="en" onChange={lang} >
+            <select id="languages" name="languages"  defaultValue="en"  >
                 <option value="af">Afrikaans</option>
                 <option value="sq">Albanian - shqip</option>
                 <option value="am">Amharic - አማርኛ</option>
@@ -160,8 +216,8 @@ const Login = (props) => {
             </select>
             <h2>Log In to Your Account</h2>
             <div className={styles.username}>
-                <input type="text" id="username" placeholder="Email or Username or Phone Number"/>
-                <input type="password" id="password" placeholder="Password"/>
+                <input type="text" id="username" placeholder="Email or Username or Phone Number" value={userState} onChange={checkUsername}/>
+                <input type="password" id="password" placeholder="Password" value={passwordState} onChange={checkPassword}/>
             </div>
             <div className ={styles.forgotpassword}>
                 <ForgotPassword />
