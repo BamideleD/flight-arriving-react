@@ -4,7 +4,7 @@ import styles from './FlightBoard.module.css';
 import Search from "./Search";
 
 
-const FlightBoard = () => {
+const FlightBoard = (props) => {
     const flights = [
         {Airport: 'MRT', Time: '15:00 CST', Arriving: 50, Departing:32},
         {Airport: 'DFW', Time: '19:00 CST', Arriving: 50, Departing:32},
@@ -13,6 +13,7 @@ const FlightBoard = () => {
 
     return (
         <div className= {styles.board}>
+            <button onClick={props.logoutHandler}> Log Out </button>
             <Search />
             <FlightTable flights = {flights}/>
         </div>

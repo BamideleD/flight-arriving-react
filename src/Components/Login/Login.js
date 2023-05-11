@@ -4,7 +4,7 @@ import ForgotPassword from "./ForgotPassword";
 import SignUp from "./SignUp";
 
 
-const Login = () => {
+const Login = (props) => {
 
     const lang = (event) => {
         return(
@@ -166,7 +166,7 @@ const Login = () => {
             <div className ={styles.forgotpassword}>
                 <ForgotPassword />
             </div>
-            <button className={styles.button} type="submit">Log In</button>
+            <button className={styles.button} type="submit" onClick={props.loginHandler}>Log In</button>
             <div className={styles.signup}>
                 <p>Need an account?</p>
                 <SignUp />

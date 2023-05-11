@@ -1,6 +1,13 @@
 .board {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    
+    width: 100%
+}
+
+button {
+    background-color: rgba(138, 138, 138, 0.545);
+    color: white;
+    border: 0px;
+    border-radius: 2px;
+    padding: 0.75% 3%;
 }

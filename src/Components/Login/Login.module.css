@@ -1,5 +1,5 @@
 .login{
-    background-color: white;
+    background-color: rgba(138, 138, 138, 0.545);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,11 +30,14 @@
 
 .login select {
   border: 0;
+  border-radius: 2px;
+  padding: 1%;
   width: 15%;
   margin: 5% 5% 0 0;
   margin-left: auto; 
-  color: rgba(0, 0, 0, 0.497);
+  color: white;
   font-size: 0.7rem;
+  background-color: rgba(0, 0, 0, 0.388);
 }
 
 
@@ -45,22 +48,22 @@
   width: 170%;
   border: 1px solid #ccc;
   margin: 5%;
+  color: white;
 }
 
 .login input:focus {
   outline: none;
-  border-color: #00475f;
-
 }
 
 .forgotpassword {
   margin: 0 5% 0 0;
   margin-left: auto;
+
 }
 
 .login button {
   color: white;
-  background-color: rgb(10, 108, 147);
+  background-color: rgba(0, 0, 0, 0.388);
   border: 0px;
   border-radius: 2px;
   width: 90%;
@@ -71,7 +74,7 @@
 
 .login button:hover {
   color: white;
-  background-color: rgb(6, 81, 110);
+  background-color: rgba(0, 0, 0, 0.605);
   border: 0px;
   border-radius: 2px;
   width: 90%;
@@ -85,6 +88,8 @@
   flex-direction: row;
   font-size: 0.7rem;
   white-space: nowrap;
+  color: white;
+  padding-bottom: 1%;
   
 }
 
@@ -115,6 +120,19 @@
   font-size: smaller; 
 }
 
+@media (max-width:600px) {
+  .login{
+    background-color: rgba(138, 138, 138, 0.545);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+
+}
+}
+  
+
 /* @media (max-width: 468px) {
   ::-webkit-input-placeholder {
     font-size:
@@ -135,3 +153,4 @@
 }
 
 } */
+
