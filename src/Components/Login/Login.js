@@ -4,32 +4,29 @@ import ForgotPassword from "./ForgotPassword";
 import SignUp from "./SignUp";
 
 
-const defaultUsername = {
-    username: ''
-}
 
-const defaultPassword = {
-    password: ''
-}
 
 const userReducer = (state, action) => {
     if (action.type === 'VALIDUSER') {
         return (
-            defaultUsername.username = action.username
+            state = action.username
         )   
     }
+    
 
-    return defaultUsername
+    
 }
 
 const passwordReducer = (state, action) => {
     if (action.type === 'VALIDPASSWORD') {
         return (
-            defaultPassword.password = action.password
+            state = action.password
         )
+        
     }
+    
 
-    return defaultPassword
+
 }
 
 const Login = (props) => {
@@ -39,7 +36,7 @@ const Login = (props) => {
 
 
     const [userState, dispatchUserAction] = useReducer(userReducer, '');
-    const [passwordState, dispatchPasswordAction] = useReducer(passwordReducer, '')
+    const [passwordState, dispatchPasswordAction] = useReducer(passwordReducer, '');
 
 
 
@@ -54,9 +51,9 @@ const Login = (props) => {
  
     useEffect(() => {
         const timer =setTimeout(() => {
-            setFormIsValid(
-                userState.length> 1 && passwordState.length > 6
-            )
+           if (userState.trim().length > 0 && passwordState.trim().length > 6){
+            setFormIsValid(true)
+           }
         },500);
         
         return () => {
@@ -65,11 +62,22 @@ const Login = (props) => {
     },[userState, passwordState])
 
     console.log(formIsValid);
+    const submitHandler = (event) => {
+        event.preventDefault()
+
+        if (formIsValid) {
+            return props.loginHandler(userState, passwordState)
+        }
+
+        else {
+            return 
+        }
+    }
 
 
 
     return (
-        <div className={styles.login}>
+        <form className={styles.login} onSubmit={submitHandler}>
             <select id="languages" name="languages"  defaultValue="en"  >
                 <option value="af">Afrikaans</option>
                 <option value="sq">Albanian - shqip</option>
@@ -222,14 +230,12 @@ const Login = (props) => {
             <div className ={styles.forgotpassword}>
                 <ForgotPassword />
             </div>
-            <button className={styles.button} type="submit" onClick={props.loginHandler}>Log In</button>
+            <button className={styles.button} type="submit" >Log In</button>
             <div className={styles.signup}>
                 <p>Need an account?</p>
                 <SignUp />
-            </div>
-            
-                  
-        </div>
+            </div>       
+        </form>
     )
 
 }
