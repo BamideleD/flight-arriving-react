@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect((email, password) => {
     const storedInfo = localStorage.getItem('bamadboss@gmail.com');
-    if (storedInfo === '0000000'){
+    if (storedInfo === '0000'){
       setIsLoggedIn(true)
     }
   }, [])
@@ -23,7 +23,7 @@ const App = () => {
   }
 
   const logoutHandler = (email, password) => {
-    localStorage.removeItem(email)
+    localStorage.removeItem('bamadboss@gmail.com')
     setIsLoggedIn(false)
   }
 

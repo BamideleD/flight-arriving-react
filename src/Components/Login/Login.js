@@ -4,14 +4,27 @@ import ForgotPassword from "./ForgotPassword";
 import SignUp from "./SignUp";
 
 
+const defaultUsername = {
+    username: '',
+    validity: false
+}
 
+const defaultPassword = {
+    password: '',
+    validity: false
+}
 
 const userReducer = (state, action) => {
     if (action.type === 'VALIDUSER') {
         return (
-            state = action.username
-        )   
+            {
+                username: action.username,
+                validity: action.username.trim().length > 0
+            }
+        )     
     }
+
+    return defaultUsername;
     
 
     
@@ -20,24 +33,40 @@ const userReducer = (state, action) => {
 const passwordReducer = (state, action) => {
     if (action.type === 'VALIDPASSWORD') {
         return (
-            state = action.password
+            {
+                password: action.password,
+                validity: action.password === '0000'
+            }
         )
-        
     }
     
-
+    return defaultPassword;
 
 }
 
 const Login = (props) => {
 
 
-    const [formIsValid,setFormIsValid] = useState(false)
+    const [formIsValid,setFormIsValid] = useState(false);
 
 
-    const [userState, dispatchUserAction] = useReducer(userReducer, '');
-    const [passwordState, dispatchPasswordAction] = useReducer(passwordReducer, '');
+    const [userState, dispatchUserAction] = useReducer(userReducer, defaultUsername);
+    const [passwordState, dispatchPasswordAction] = useReducer(passwordReducer, defaultPassword);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+           setFormIsValid(
+            userState.validity && passwordState.validity
+           );
+        }, 500);
+        
+        return (() => {
+            clearTimeout(timer);
+        });
+    },[userState, passwordState]);
+
+
+  
 
 
     const checkUsername = (event) => {
@@ -49,19 +78,9 @@ const Login = (props) => {
     }
 
  
-    useEffect(() => {
-        const timer =setTimeout(() => {
-           if (userState.trim().length > 0 && passwordState.trim().length > 6){
-            setFormIsValid(true)
-           }
-        },500);
-        
-        return () => {
-            clearTimeout(timer)
-        };
-    },[userState, passwordState])
+ 
 
-    console.log(formIsValid);
+    
     const submitHandler = (event) => {
         event.preventDefault()
 
@@ -70,7 +89,7 @@ const Login = (props) => {
         }
 
         else {
-            return 
+            return alert('Password must be 0000')
         }
     }
 
@@ -224,8 +243,8 @@ const Login = (props) => {
             </select>
             <h2>Log In to Your Account</h2>
             <div className={styles.username}>
-                <input type="text" id="username" placeholder="Email or Username or Phone Number" value={userState} onChange={checkUsername}/>
-                <input type="password" id="password" placeholder="Password" value={passwordState} onChange={checkPassword}/>
+                <input type="text" id="username" placeholder="Email or Username or Phone Number" value={userState.username} onChange={checkUsername}/>
+                <input type="password" id="password" placeholder="Password" value={passwordState.password} onChange={checkPassword}/>
             </div>
             <div className ={styles.forgotpassword}>
                 <ForgotPassword />
